@@ -1,0 +1,55 @@
+.wrapper {
+  width: 235px;
+  margin: 15px;
+}
+
+.features-wrapper {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: border 0.3s ease;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.features-wrapper:hover {
+  border: 1px solid black;
+}
+
+.card__img{
+  max-width: 150px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.card__title {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  line-height: 1.3;
+  height: 38px;
+  overflow: hidden; 
+}
+
+.card__price {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+
+
+.btn__cart  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  border: 1px solid black;
+  cursor: pointer;
+  font-size: 18px;
+}

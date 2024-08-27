@@ -1,0 +1,36 @@
+<div class="checkout-container">
+  <h3>Checkout</h3>
+
+  <div class="checkout-content">
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="address">Endereço</label>
+        <input type="text" id="address" formControlName="address" />
+      </div>
+
+      <div class="form-group">
+        <label for="city">Cidade</label>
+        <input type="text" id="city" formControlName="city" />
+      </div>
+
+      <div class="form-group">
+        <label for="state">Estado</label>
+        <input type="text" id="state" formControlName="state" />
+      </div>
+
+      <div class="form-group">
+        <label for="zip">CEP</label>
+        <input type="text" id="zip" formControlName="zip" />
+      </div>
+
+      <button type="submit" [disabled]="checkoutForm.invalid" routerLink="/shipment">
+        Escolher entrega
+      </button>
+    </form>
+
+    <div class="cart-summary">
+      <h5>Resumo do Carrinho</h5>
+      <p>Preço total: {{ (cartTotals$ | async)?.subtotal | currency:"BRL" }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="cart-container">
+  @if ((cart$ | async) === null) {
+      <p class="empty-cart-message">Não tem itens em seu carrinho</p>
+  }
+
+  @if (cart$ | async) {
+      <div class="cart-content">
+          <div class="cart-details-wrapper">
+              <app-cart-details 
+                  [items]="(cart$ | async)!.items" 
+                  (increment)="incrementItemQuantity($event)"
+                  (decrement)="decrementItemQuantity($event)" 
+                  (remove)="removeCartItem($event)">
+              </app-cart-details>
+          </div>
+          <div class="cart-summary">
+              <div class="subtotal">
+                  Preço total: <span class="subtotal-amount">{{(cartTotals$ | async)!.subtotal | currency:"BRL"}}</span>
+              </div>
+              <div class="checkout-button-wrapper">
+                  <a routerLink="/checkout" class="checkout-button">
+                      Ir para o checkout
+                  </a>
+              </div>
+          </div>
+      </div>
+  }
+</div>

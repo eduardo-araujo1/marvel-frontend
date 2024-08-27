@@ -1,0 +1,114 @@
+
+
+<div class="container">
+  <div class="row">
+    <!-- Coluna da esquerda para filtros e categorias (visível apenas em telas maiores) -->
+    <div class="col-left" [class.modal-content]="isFilterModalOpen">
+      @if (isFilterModalOpen) {
+        <button class="close-modal-btn" (click)="closeFiltersModal()"><i class="fa fa-times"></i></button>
+      }
+      <ng-container *ngTemplateOutlet="filtersContent"></ng-container>
+    </div>
+
+    <div class="col-right">
+      <!-- Botão para abrir o modal de filtros em telas pequenas -->
+      <button class="open-filters-btn" (click)="openFiltersModal()">Filtros</button>
+      
+      <div class="search-and-reset">
+        <form [formGroup]="searchForm" (ngSubmit)="searchByName()" class="search-form">
+          <input type="text" formControlName="searchName" placeholder="Buscar por nome">
+          <button type="submit">Buscar</button>
+        </form>
+        <button type="button" (click)="resetFilters()" class="reset-button">Resetar Filtros</button>
+      </div>
+
+      <section class="product-list">
+        <div class="store-wrapper">
+          @for (hq of list; track hq) {
+            <app-product-item [hq]="hq"></app-product-item>
+          }
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- Template para o conteúdo dos filtros -->
+<ng-template #filtersContent>
+
+  <div class="search-and-reset-mobile">
+    <form [formGroup]="searchForm" (ngSubmit)="searchByName()" class="search-form">
+      <input type="text" formControlName="searchName" placeholder="Buscar por nome">
+      <button type="submit">Buscar</button>
+    </form>
+    <button type="button" (click)="resetFilters()" class="reset-button">Resetar Filtros</button>
+  </div>
+
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="categories__title">Categorias:</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-selection-list #categoryList [multiple]="false">
+        @for (category of categories; track category) {
+          <mat-list-option class="categories__list" (click)="filterByCategory(category)">
+            {{ category.replace('_', ' ') | titlecase }}
+          </mat-list-option>
+        }
+      </mat-selection-list>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="price__filter">
+    <mat-card-header>
+      <mat-card-title class="price__filter-title">Filtro de Preço:</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="filterForm" (ngSubmit)="applyFilter()">
+        <div>
+          <label class="price__filter-label">Preço Mínimo: {{ filterForm.value.minPrice | currency:"BRL" }}</label>
+          <mat-slider
+            [min]="0"
+            [max]="500"
+            [step]="10"
+            [discrete]="true"
+            [showTickMarks]="true">
+            <input matSliderThumb formControlName="minPrice">
+          </mat-slider>
+        </div>
+        <div>
+          <label>Preço Máximo: {{ filterForm.value.maxPrice | currency:"BRL" }}</label>
+          <mat-slider
+            [min]="0"
+            [max]="500"
+            [step]="10"
+            [discrete]="true"
+            [showTickMarks]="true">
+            <input matSliderThumb formControlName="maxPrice">
+          </mat-slider>
+        </div>
+        <button mat-raised-button color="primary" type="submit">Confirmar</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</ng-template>
+
+<!-- Overlay para o modal em telas pequenas -->
+@if (isFilterModalOpen) {
+  <div class="modal-overlay" (click)="closeFiltersModal()"></div>
+}
+
+<mat-paginator class="pagination" [length]="100"
+              [pageSize]="9"
+              [pageSizeOptions]="[6, 9, 12]"
+              aria-label="Select page">
+</mat-paginator>
+
+
+
+
+
+
+
+

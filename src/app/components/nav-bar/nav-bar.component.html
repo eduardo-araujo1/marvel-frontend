@@ -1,0 +1,22 @@
+<div class="bg">
+  <header class="header">
+    <a routerLink="/store" class="header__logo-link">
+      <img src="assets/images/main-logo.png" alt="Logo do site" class="header__logo">
+    </a>
+    <nav class="header__nav">    
+      <ul class="nav__ul">
+        <li class="nav__li">
+          <a class="nav__a" routerLink="/login" routerLinkActive="active">
+            <i class="fa fa-user fa-2x"></i> Entrar <br> Minha Conta
+          </a>
+        </li>
+        <li class="nav__li">
+          <a class="nav__a" routerLink="/cart" routerLinkActive="active">
+            <i class="fa fa-shopping-cart fa-2x"></i> Meu <br> Carrinho
+            <div class="cart-no" *ngIf="(this.cart$ | async) as cart"> {{cart.items.length}} </div>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>

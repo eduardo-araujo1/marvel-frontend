@@ -1,0 +1,32 @@
+<div class="shipment-container">
+  <h3>Selecione o Método de Entrega</h3>
+  <div class="shipment-content">
+    <div class="delivery-options">
+      <div class="option" *ngFor="let option of deliveryOptions">
+        <div class="option-card">
+          <h5>{{ option.name }} <i class="fa fa-truck"></i></h5>
+          <p><strong>Prazo de Entrega:</strong> {{ option.deliveryTime }}</p>
+          <p><strong>Preço:</strong> R$ {{ option.price }}</p>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              [value]="option.id"
+              [(ngModel)]="selectedOption"
+              name="deliveryOption"
+              (change)="updateShipmentPrice()"
+            />
+            <label class="form-check-label">Selecionar</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cart-summary">
+      <h5>Resumo do Carrinho</h5>
+      <p>Preço total: {{ totalWithShipping | currency:"BRL" }}</p>
+      <button type="button" class="btn-next" (click)="goToNextStep()">
+        Finalizar pedido <i class="fa fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+</div>

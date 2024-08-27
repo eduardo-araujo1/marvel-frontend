@@ -1,0 +1,141 @@
+.info-wrapper {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  margin-top: 60px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.info__left, .info__right {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  margin-inline: 20px;
+}
+
+.info__left {
+  align-items: center;
+  background-color: #f0f0f0;
+  max-width: 618px;
+  max-height: 428px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.product__img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}
+
+.product__title {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: 0.15px;
+  color: #343D55;
+}
+
+.product__summary {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #24262F; 
+}
+
+mat-divider {
+  width: 100%;
+  margin: 20px 0;
+  background-color: #d1d1d1;
+  height: 1px;
+}
+
+.product__price {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 14px;
+  letter-spacing: 0.15px;
+  margin-top: 10px;
+  margin-bottom: 35px;
+}
+
+.action-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  width: 120px;
+  height: 48px;
+  padding: 0 8px;
+}
+
+.quantity-button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.quantity {
+  font-size: 18px;
+  margin-inline: auto;
+}
+
+.btn__cart {
+  width: 460px;
+  height: 50px;
+  background-color: #28C76F;
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn__cart i {
+  padding-right: 14px;
+}
+
+
+@media (width < 1024px) {
+  .info-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info__left {
+    margin-bottom: 50px;
+  }
+
+  .action-wrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .quantity-control {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .btn__cart {
+    width: 100%;
+  }
+}

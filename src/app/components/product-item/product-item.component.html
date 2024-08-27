@@ -1,0 +1,26 @@
+<section class="column gap-1 wrapper">
+  <div class="features-wrapper">
+    <img 
+      class="card__img" 
+      [src]="'/assets/images/products/' + hq.image" 
+      alt="{{hq.name}}"
+      [routerLink]="['/store', hq.id]" 
+      style="cursor: pointer;">
+      
+    <div class="card__body">
+      <h5 
+        class="card__title" 
+        [routerLink]="['/store', hq.id]" 
+        style="cursor: pointer;">
+        {{hq.name}}
+      </h5>
+      <p class="card__price">{{hq.price | currency:"BRL"}}</p>
+
+      <button class="btn__cart" (click)="addItemToCart()">
+        <i class="fa fa-shopping-cart"></i> Adicionar
+      </button>
+    </div>
+  </div>
+</section>
+
+

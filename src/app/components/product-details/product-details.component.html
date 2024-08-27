@@ -1,0 +1,30 @@
+@if (product) {
+  <div class="info-wrapper">
+    <div class="info__left">
+      <img class="product__img" [src]="'/assets/images/products/' + product.image" alt="{{product.name}}">
+    </div>
+    <div class="info__right">
+      <h2 class="product__title">{{product.name}}</h2>
+      <p class="product__summary">{{product.summary}}</p>
+
+      <mat-divider></mat-divider>
+      <p class="product__price">{{product.price | currency:"BRL"}}</p>
+
+      <div class="action-wrapper">
+        <div class="quantity-control">
+          <button class="quantity-button" (click)="decrementQuantity()">
+            <i class="fa fa-minus"></i>
+          </button>
+          <span class="quantity">{{ quantity }}</span>
+          <button class="quantity-button" (click)="incrementQuantity()">
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
+      
+        <button class="btn__cart" (click)="addItemToCart()">
+          <i class="fa fa-shopping-cart"></i> Adicionar
+        </button>
+      </div>
+    </div>
+  </div>
+}

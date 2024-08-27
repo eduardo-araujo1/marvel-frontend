@@ -1,0 +1,55 @@
+@if (items.length > 0) {
+  <div class="table-container">
+      <table class="custom-table">
+          <thead>
+              <tr>
+                  <th>
+                      <div class="header-cell">Produto</div>
+                  </th>
+                  <th>
+                      <div class="header-cell">Preço</div>
+                  </th>
+                  <th>
+                      <div class="header-cell">Quantidade</div>
+                  </th>
+                  <th>
+                      <div class="header-cell">Total</div>
+                  </th>
+                  <th>
+                      <div class="header-cell">Remover</div>
+                  </th>
+                  
+              </tr>
+          </thead>
+          <tbody>
+              @for (item of items; track item) {
+                  <tr>
+                      <td>
+                          <div class="product-cell">
+                              <img [src]="'/assets/images/products/' + item.image" [alt]="item.productName" class="product-image">
+                              @if (item.productName) {
+                                  <span class="product-title">{{item.productName}}</span>
+                              }
+                          </div>
+                      </td>
+                      <td class="price-cell"><strong>{{item.price | currency:"BRL"}}</strong></td>
+                      <td class="quantity-cell">
+                          <div class="quantity-controls">
+                            <button (click)="decrementItemQuantity(item)" class="quantity-btn">-</button>
+                            <span class="quantity-value">{{item.quantity}}</span>
+                            <button (click)="incrementItemQuantity(item)" class="quantity-btn">+</button>
+                          </div>
+                      </td>
+                      <td class="total-cell">
+                          <strong>{{item.price * item.quantity | currency:"BRL"}}</strong>
+                      </td>
+                      <td class="remove-cell">
+                        <button (click)="removeCartItem(item)" class="remove-btn"> <i class="fa fa-trash"></i>
+                        </button>
+                      </td>
+                  </tr>
+              } 
+          </tbody>
+      </table>
+  </div>
+}
