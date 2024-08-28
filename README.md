@@ -16,5 +16,21 @@
 + [✔] Carrinho de Compra
 + [✔] Finalizar Compra 
 
-## Rodar 
- Rode `ng serve` no console e acesse a página `http://localhost:4200/`
+# Algumas fotos
+
+## Produtos
+![src/assets/products.png](src/assets/products.png)
+
+## Detalhe do produto
+![src/assets/product-detail.png](src/assets/product-detail.png)
+
+## Carrinho
+![src/assets/cart.png](src/assets/cart.png)
+
+## Como rodar o projeto
+ 1. **Instalar as dependências:**  
+   Após clonar o repositório, navegue até a pasta do projeto e rode o comando:
+   `npm install`
+
+2. **Rodar a aplicação:**
+ Digite `ng serve` e acesse a página `http://localhost:4200/`
