@@ -6,7 +6,7 @@
 ## Versão Angular
 + **18.1.3**
 
-##Fluxo
+## Fluxo
 
 + [✔] Cadastro do Usuário
 + [✔] Autenticação do Usuário
@@ -29,8 +29,7 @@
 
 ## Como rodar o projeto
  1. **Instalar as dependências:**  
-   Após clonar o repositório, navegue até a pasta do projeto e rode o comando:
-   `npm install`
+   Após clonar o repositório, navegue até a pasta do projeto e rode o comando: `npm install`
 
 2. **Rodar a aplicação:**
  Digite `ng serve` e acesse a página `http://localhost:4200/`
