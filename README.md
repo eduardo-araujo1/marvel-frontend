@@ -16,5 +16,5 @@
 + [✔] Carrinho de Compra
 + [✔] Finalizar Compra 
 
-##Rodar 
+## Rodar 
  Rode `ng serve` no console e acesse a página `http://localhost:4200/`
